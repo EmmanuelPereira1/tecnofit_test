@@ -1,0 +1,1 @@
+export 'package:tecnofit_test/core/remote_client/remote_client.dart';

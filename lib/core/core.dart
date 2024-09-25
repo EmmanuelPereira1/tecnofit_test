@@ -1,0 +1,12 @@
+export 'package:dio/dio.dart';
+export 'package:flutter/material.dart';
+export 'package:bloc/bloc.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
+export 'package:equatable/equatable.dart';
+export 'package:tecnofit_test/core/remote_client/exports_remote_clients.dart';
+export 'package:tecnofit_test/core/enums/exports_enums.dart';
+export 'package:tecnofit_test/core/constants/exports_constants.dart';
+export 'package:tecnofit_test/core/generics/exports_generics.dart';
+export 'package:tecnofit_test/mobile/features/home/exports_home.dart';
+export 'package:get_it/get_it.dart';
+export 'package:tecnofit_test/providers.dart'; 
