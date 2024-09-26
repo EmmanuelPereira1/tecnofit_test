@@ -14,8 +14,8 @@ class BlocCubit extends Cubit<BlocState> {
   BlocCubit() : super(BlocStateInitial());
 
   Future<void> fetchUsers(int numberPage) async {
-    final result = await _fetchUserUsecase.fetchUseCaseUsers(numberPage);
-    if (result.hasError || result.data == null || result.data!.empty!) {
+    final result = await _fetchUserUsecase.fetchUseCaseUsers();
+    if (result.hasError || result.data == null) {
       emit(BlocError());
     } else {
       emit(BlocSuccess(
