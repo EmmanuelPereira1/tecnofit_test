@@ -25,6 +25,11 @@ class BlocCubitLogin extends Cubit<BlocState> {
 
   BlocCubitLogin() : super(BlocStateInitial());
 
+  void logoutController() {
+    emit(BlocStateInitial());
+  }
+
+
 Future<void> loginController(String email, String password) async {
     // Emite um estado de carregamento (loading) se aplicável
     emit(BlocLoading());
@@ -64,6 +69,7 @@ Future<void> registerController(String email, String password) async {
   // Usa o ID recebido para buscar mais informações do usuário
   await fetchUserInformations(userId);
 }
+
 
   Future<void> fetchUserInformations(int id) async {
     final result = await _fetchUserUsecase.fetchUseCaseUsers(id);

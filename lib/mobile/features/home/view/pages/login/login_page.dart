@@ -54,8 +54,13 @@ class _LoginPageState extends State<LoginPage> {
           }
 
           if (state is BlocSuccess){
-            
-            return _buildProfileScreen(state.entityUser);
+            // Navega para a página de perfil
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Navigator.pushReplacementNamed(
+                context,
+                '/home',
+              );
+            });
           }
 
           return _buildLoginForm(context);
@@ -105,7 +110,6 @@ class _LoginPageState extends State<LoginPage> {
                           _emailTextController.text,
                           _passwordTextController.text,
                           );
-                        
                       },
                     ),
                     const SizedBox(height: 10),
@@ -122,54 +126,5 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
    
-   Widget _buildProfileScreen(UserEntity? entity) {
-    // Exibe a tela de perfil com avatar, nome, email, etc.
-    if (entity == null) return const CircularProgressIndicator();
-
-    return SingleChildScrollView(
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                // Avatar
-                CircleAvatar(
-                  radius: 50,
-                  backgroundImage: NetworkImage(entity.data!.avatar!) 
-                ),
-                const SizedBox(height: 20),
-                // Nome Completo
-                Text(
-                  '${entity.data!.firstName} ${entity.data!.lastName}',
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                // Email
-                Text(
-                  entity.data!.email!,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    color: Colors.grey,
-                  ),
-                ),
-                const SizedBox(height: 30),              
-                // Botão de Logout
-                ElevatedButton(
-                  onPressed: () {
-                  },
-                  child: const Text('Logout'),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+   
 }

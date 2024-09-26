@@ -1,46 +1,50 @@
 part of 'bloc_cubit.dart';
 
-sealed class BlocStateUser extends Equatable {
-  const BlocStateUser();
+sealed class BlocState extends Equatable {
+  const BlocState();
 
   @override
   List<Object?> get props => [];
 }
 
-class BlocStateInitialUser extends BlocStateUser {}
+class BlocStateInitial extends BlocState {}
 
-class BlocLoadingUser extends BlocStateUser {}
+class BlocLoading extends BlocState {}
 
-class BlocErrorUser extends BlocStateUser {
+class BlocError extends BlocState {
   final String message;
 
   // O erro pode ter uma mensagem detalhada, para tornar o estado de erro mais informativo.
-  const BlocErrorUser({this.message = "Ocorreu um erro"});
+  const BlocError({this.message = "Ocorreu um erro"});
 
   @override
   List<Object?> get props => [message];
 }
 
-class BlocSuccessUser extends BlocStateUser {
+class BlocSuccess extends BlocState {
   final EntityLogin? entityLogin;
   final EntityRegister? entityRegister;
+  final UserEntity? entityUser;
 
-  const BlocSuccessUser({this.entityLogin, this.entityRegister});
 
-  // Método copyWith para copiar o estado atual e opcionalmente modificar propriedades.
-  BlocSuccessUser copyWith({
+  const BlocSuccess({this.entityUser,this.entityLogin, this.entityRegister});
+
+  BlocSuccess copyWith({
     EntityLogin? entityLogin,
     EntityRegister? entityRegister,
+    UserEntity? entityUser,
   }) {
-    return BlocSuccessUser(
+    return BlocSuccess(
       entityLogin: entityLogin ?? this.entityLogin,
       entityRegister: entityRegister ?? this.entityRegister,
+      entityUser: entityUser ?? this.entityUser,
     );
   }
 
   @override
   List<Object?> get props => [
     entityLogin,
-    entityRegister
+    entityRegister,
+    entityUser
   ];
 }

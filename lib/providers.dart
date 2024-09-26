@@ -6,7 +6,6 @@ import 'package:tecnofit_test/core/data/post_register/data_source/data_source_re
 import 'package:tecnofit_test/core/data/post_register/repository/repository_register.dart';
 import 'package:tecnofit_test/core/domain/use_cases/use_case_login.dart';
 import 'package:tecnofit_test/core/domain/use_cases/use_case_register.dart';
-import 'package:tecnofit_test/mobile/features/home/view/pages/home/bloc/bloc_cubit.dart';
 
 class AppGetIt {
 
@@ -32,6 +31,5 @@ Future<void> setupProviders() async {
 
   //bloc
   instance.registerLazySingleton<BlocCubitLogin>(() => BlocCubitLogin());
-  instance.registerLazySingleton<BlocCubitUser>(() => BlocCubitUser());
 }
 }
