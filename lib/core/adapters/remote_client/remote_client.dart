@@ -6,7 +6,6 @@ abstract class AbstractRemoteClient {
       Map<String, dynamic>? body,
       );
   Future<ResponseGenerics<Map<String, dynamic>, RemoteClientEnumError>> post({
-
     required String url,
     required Map<String, dynamic> body
 });
@@ -20,10 +19,7 @@ class RemoteClient implements AbstractRemoteClient {
       String url, Map<String, dynamic>? body,) async {
     try {
       final response = await _dio.get<Map<String, dynamic>>(url,
-          options: Options(headers: {
-            'x-prolog-api-token':
-                'ePTC2XrkY34WKUCXq48fTxrLCzdV3M35MNpCfBYavabwwY9BJXg',
-          }));
+          );
       if (response.statusCode != 200) {
         return ResponseGenerics(
             statusCode: response.statusCode!,

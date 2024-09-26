@@ -1,7 +1,8 @@
 import 'package:tecnofit_test/core/core.dart';
 
 class ButtonWidget extends StatelessWidget {
-  const ButtonWidget({super.key});
+  final Function() onPressed;
+  const ButtonWidget({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class ButtonWidget extends StatelessWidget {
                               backgroundColor: MaterialStateProperty.all<Color>(
                                   AppColors.normalBlue),
                             ),
-                            onPressed: (){},
+                            onPressed: onPressed,
                             child: const Text(
                               "LOGIN",
                               style: TextStyle(color: AppColors.beige),

@@ -1,17 +1,17 @@
 import 'package:tecnofit_test/core/core.dart';
 
 abstract class AbstractFetchUseCaseUsers {
-  Future<StateGenerics<Entity?, ErrorEnum>>
-      fetchUseCaseUsers();
+  Future<StateGenerics<UserEntity?, ErrorEnum>>
+      fetchUseCaseUsers(int id);
 }
 
 class FetchUseCaseUsers
     implements AbstractFetchUseCaseUsers {
   @override
-  Future<StateGenerics<Entity?, ErrorEnum>>
-      fetchUseCaseUsers() async {
+  Future<StateGenerics<UserEntity?, ErrorEnum>>
+      fetchUseCaseUsers(int id) async {
     final respository = AppGetIt.instance.get<AbstractRepositoryUsers>();
-    final result = await respository.repositoryUsers();
+    final result = await respository.repositoryUsers(id);
 
     if(result.hasError || result.data == null) {
       return StateGenerics.failed(error: ErrorEnum.error);
