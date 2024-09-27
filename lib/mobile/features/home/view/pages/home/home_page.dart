@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                     user.data!.email!,
                     style: const TextStyle(
                       fontSize: 16,
-                      color: Colors.grey,
+                      color: AppColors.darkBlue,
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.03),
