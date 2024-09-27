@@ -1,6 +1,4 @@
 import 'package:tecnofit_test/core/core.dart';
-import 'package:tecnofit_test/core/data/post_login/repository/repository.dart';
-import 'package:tecnofit_test/core/entities/entity_login.dart';
 
 abstract class AbstractFetchUseCaseLogin {
   Future<StateGenerics<EntityLogin?, ErrorEnum>>

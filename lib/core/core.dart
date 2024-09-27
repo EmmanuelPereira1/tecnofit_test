@@ -8,5 +8,8 @@ export 'package:tecnofit_test/core/enums/exports_enums.dart';
 export 'package:tecnofit_test/core/constants/exports_constants.dart';
 export 'package:tecnofit_test/core/generics/exports_generics.dart';
 export 'package:tecnofit_test/mobile/features/home/exports_home.dart';
+export 'package:tecnofit_test/core/entities/exports_entities.dart';
+export 'package:tecnofit_test/core/widgets/exports_widget.dart';
+export 'package:tecnofit_test/core/domain/exports_domain.dart';
 export 'package:get_it/get_it.dart';
 export 'package:tecnofit_test/providers.dart'; 

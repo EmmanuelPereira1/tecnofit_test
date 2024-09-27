@@ -1,6 +1,4 @@
 import 'package:tecnofit_test/core/core.dart';
-import 'package:tecnofit_test/mobile/features/home/view/pages/home/home_page.dart';
-import 'package:tecnofit_test/mobile/features/home/view/pages/login/login_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

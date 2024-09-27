@@ -1,6 +1,4 @@
 import 'package:tecnofit_test/core/core.dart';
-import 'package:tecnofit_test/core/data/post_login/data_source/data_source_login.dart';
-import 'package:tecnofit_test/core/entities/entity_login.dart';
 
 abstract class AbstractRepositoryLogin {
   Future<StateGenerics<EntityLogin?, ErrorEnum>> repositoryUsers(String email, String password);

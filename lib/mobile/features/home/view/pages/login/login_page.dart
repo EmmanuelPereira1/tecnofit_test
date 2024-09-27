@@ -1,8 +1,4 @@
-
 import 'package:tecnofit_test/core/core.dart';
-import 'package:tecnofit_test/core/widgets/button_widget.dart';
-import 'package:tecnofit_test/core/widgets/text_button_widget.dart';
-import 'package:tecnofit_test/core/widgets/text_field_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -25,36 +21,14 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: AppColors.beige,
       body: BlocBuilder<BlocCubitLogin, BlocState>(
         bloc: bloc,
         builder: (context, state) {
-          if (state is BlocLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          
-          if (state is BlocError) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Erro ao realizar login. Tente novamente.'),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () => bloc.loginController(
-                      _emailTextController.text.trim(),
-                      _passwordTextController.text,
-                    ),
-                    child: const Text('Tentar Novamente'),
-                  ),
-                ],
-              ),
-            );
-          }
 
           if (state is BlocSuccess){
-            // Navega para a página de perfil
             WidgetsBinding.instance.addPostFrameCallback((_) {
               Navigator.pushReplacementNamed(
                 context,
@@ -70,35 +44,49 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _buildLoginForm(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
+
     return SingleChildScrollView(
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.1, vertical: screenHeight * 0.05),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const SizedBox(height: 130),
+                 SizedBox(height: screenHeight * 0.2),
                 Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const SizedBox(height: 40),
-                    // Campo de Email
+                    SizedBox(height: screenHeight * 0.03),
                     TextFieldWidget(
+                      validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Digite o e-mail';
+                              }
+                              return null;
+                      },
                       hintText: 'Email',
                       controller: _emailTextController,
                       onChanged: (value) => bloc.setEmail(value),
                     ),
-                    const SizedBox(height: 20),
-                    // Campo de Senha
+                    SizedBox(height: screenHeight * 0.03),
                     TextFieldWidget(
                       hintText: 'Password',
+                      validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Digite a senha';
+                              }
+                          return null;
+                      },
                       controller: _passwordTextController,
                       onChanged: (value) => bloc.setPassword(value),
                       obscureText: true,
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: screenHeight * 0.03),
                     // Botão de Login
                     ButtonWidget(
                       onPressed: () {
@@ -110,11 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                           _emailTextController.text,
                           _passwordTextController.text,
                           );
-                      },
-                    ),
-                    const SizedBox(height: 10),
-                    // Botão Textual (Esqueci a Senha)
-                    const TextButtonWidget(
+                      }, text: 'LOGIN',
                     ),
                   ],
                 ),

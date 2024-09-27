@@ -10,7 +10,7 @@ final _remoteClient = AppGetIt.instance.get<AbstractRemoteClient>();
   @override
   Future<StateGenerics<Map<String, dynamic>, ErrorEnum>> dataSourceGetUsers(int id, Map<String,dynamic> body) async {
     final response = await _remoteClient.get(
-      "https://reqres.in/api/users/$id",
+      "${ApiConnects.users}$id",
       body
     );
     if (response.statusCode != 200) {

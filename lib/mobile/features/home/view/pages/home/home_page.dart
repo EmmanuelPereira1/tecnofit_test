@@ -20,46 +20,51 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: AppColors.beige,
 
       body: BlocBuilder<BlocCubitLogin, BlocState>(
         builder: (context, state) {
+
+          
           if (state is BlocSuccess) {
             final user = state.entityUser;
-            
+            if (user == null) {
+              return const Center(child: CircularProgressIndicator());
+              }
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    radius: 50,
-                    backgroundImage: NetworkImage(user!.data!.avatar!),
+                    radius: 60,
+                    backgroundImage: NetworkImage(user.data!.avatar!),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: screenHeight * 0.03),
                   Text(
                     '${user.data!.firstName} ${user.data!.lastName}',
                     style: const TextStyle(
-                      fontSize: 24,
+                      fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: screenHeight * 0.01),
                   Text(
                     user.data!.email!,
                     style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       color: Colors.grey,
                     ),
                   ),
-                  const SizedBox(height: 30),
-                  ElevatedButton(
+                  SizedBox(height: screenHeight * 0.03),
+                  ButtonWidget(
                     onPressed: () {
                     bloc.logoutController();
-                    Navigator.pushReplacementNamed(context, '/');
-                    },  
-                    child: const Text('Logout'),
+                    Navigator.pushReplacementNamed(context, '/');                    
+                    },
+                    text: 'Logout',
                   ),
                 ],
               ),

@@ -14,7 +14,6 @@ class BlocLoading extends BlocState {}
 class BlocError extends BlocState {
   final String message;
 
-  // O erro pode ter uma mensagem detalhada, para tornar o estado de erro mais informativo.
   const BlocError({this.message = "Ocorreu um erro"});
 
   @override

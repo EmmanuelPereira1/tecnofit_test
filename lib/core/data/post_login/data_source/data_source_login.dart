@@ -10,7 +10,7 @@ class DataSourceLogin implements AbstractDataSourceLogin {
   @override
   Future<StateGenerics<Map<String, dynamic>, ErrorEnum>> dataSourceLogin(Map<String, dynamic> body) async {
     final response = await _remoteClient.post(
-      url: "https://reqres.in/api/login",
+      url: ApiConnects.login,
       body: body,
     );
     if (response.statusCode != 200) {

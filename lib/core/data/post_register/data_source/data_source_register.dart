@@ -10,7 +10,7 @@ class DataSourceRegister implements AbstractDataSourceRegister {
   @override
   Future<StateGenerics<Map<String, dynamic>, ErrorEnum>> dataSourceRegister(Map<String, dynamic> body) async {
     final response = await _remoteClient.post(
-      url: "https://reqres.in/api/register",
+      url: ApiConnects.register,
       body: body,
     );
     if (response.statusCode != 200) {

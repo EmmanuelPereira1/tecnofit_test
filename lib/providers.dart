@@ -1,11 +1,5 @@
 
 import 'package:tecnofit_test/core/core.dart';
-import 'package:tecnofit_test/core/data/post_login/data_source/data_source_login.dart';
-import 'package:tecnofit_test/core/data/post_login/repository/repository.dart';
-import 'package:tecnofit_test/core/data/post_register/data_source/data_source_register.dart';
-import 'package:tecnofit_test/core/data/post_register/repository/repository_register.dart';
-import 'package:tecnofit_test/core/domain/use_cases/use_case_login.dart';
-import 'package:tecnofit_test/core/domain/use_cases/use_case_register.dart';
 
 class AppGetIt {
 

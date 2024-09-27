@@ -1,8 +1,5 @@
 import 'package:tecnofit_test/core/core.dart';
-import 'package:tecnofit_test/core/domain/use_cases/use_case_login.dart';
-import 'package:tecnofit_test/core/domain/use_cases/use_case_register.dart';
-import 'package:tecnofit_test/core/entities/entity_login.dart';
-import 'package:tecnofit_test/core/entities/entity_register.dart';
+
 
 part 'bloc_state.dart';
 

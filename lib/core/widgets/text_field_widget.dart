@@ -5,14 +5,17 @@ class TextFieldWidget extends StatelessWidget {
   final bool obscureText;
   final TextEditingController controller;
   final Function(String) onChanged;
-  const TextFieldWidget({super.key, required this.hintText, this.obscureText = false, required this.controller, required this.onChanged});
+  final String? Function(String?) validator;
+
+  const TextFieldWidget({super.key, required this.hintText, this.obscureText = false, required this.controller, required this.onChanged, required this.validator});
 
   @override
   Widget build(BuildContext context) {
-    return  TextField(  
+    return  TextFormField(  
                         obscureText: obscureText,
                         controller: controller,
                         onChanged: onChanged,
+                        validator: validator,
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(25),

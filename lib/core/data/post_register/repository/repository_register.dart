@@ -1,6 +1,4 @@
 import 'package:tecnofit_test/core/core.dart';
-import 'package:tecnofit_test/core/data/post_register/data_source/data_source_register.dart';
-import 'package:tecnofit_test/core/entities/entity_register.dart';
 
 abstract class AbstractRepositoryRegister {
   Future<StateGenerics<EntityRegister?, ErrorEnum>> repositoryRegister(String email, String password);

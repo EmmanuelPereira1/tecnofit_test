@@ -1,6 +1,4 @@
 import 'package:tecnofit_test/core/core.dart';
-import 'package:tecnofit_test/core/data/post_register/repository/repository_register.dart';
-import 'package:tecnofit_test/core/entities/entity_register.dart';
 
 
 abstract class AbstractFetchUseCaseRegister {
